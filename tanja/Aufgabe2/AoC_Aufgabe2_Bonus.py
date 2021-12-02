@@ -1,7 +1,6 @@
 import sys
 import re
 
-
 def main():
     horizontal = 0
     depth = 0
