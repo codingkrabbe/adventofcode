@@ -1,6 +1,6 @@
 if __name__ == '__main__':
 
-    with open('01-01-input.txt', 'r', encoding='utf-8') as f:
+    with open('01-input.txt', 'r', encoding='utf-8') as f:
         result = f.readlines()
     input = []
     last_depth = 0
