@@ -133,9 +133,9 @@ def main():
 				if(sum(winners) < len(f_input["boards"])-1):
 					winners[b.getId()] = 1
 				else:
-					b.printBoard()
-					print()
-					b.printBoardMarked()
+					#b.printBoard()
+					#print()
+					#b.printBoardMarked()
 					print("VERY LAST WINNNER!!! - Board No. \"" + str(b.getId()) + "\"")
 					print("Winning Number: " + number)
 					print("Final Score: " + str(b.calculateFinalScore(int(number))))
