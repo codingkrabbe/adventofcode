@@ -27,7 +27,7 @@ for ($k=0; $k < count($draws); $k++) {
 					if ($board[$l][$m][$n]==$draws[$k]) {
 						$board[$l][$m][$n]="x";
 					} else {
-						$tsum+=$board[$l][$m][$n];
+						if ($board[$l][$m][$n]!="x") $tsum+=$board[$l][$m][$n];
 					}
 				}
 			}
