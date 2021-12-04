@@ -24,7 +24,7 @@ def main():
 		gamma_rate = calc_gamma_rate(digits, len(lines), num_bits)
 		epsilon_rate = int(math.pow(2,num_bits)-1-gamma_rate)
 
-		print("location: " + str(epsilon_rate*gamma_rate))
+		print("power consumption: " + str(epsilon_rate*gamma_rate))
 
 
 if __name__ == "__main__":
