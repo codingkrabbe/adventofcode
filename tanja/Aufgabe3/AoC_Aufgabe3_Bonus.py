@@ -9,10 +9,12 @@ def main():
         for i in range(len(linesOxy[0]) - 1):
             resOxy = dict(Counter(c[i] for c in linesOxy))
             resCO2 = dict(Counter(c[i] for c in linesCO2))
+            print(resOxy)
 
             if len(linesOxy) != 1:
                 linesOxy = [x for x in linesOxy if x[i] == '1'] if resOxy['1'] >= resOxy['0'] else [x for x in linesOxy
                                                                                                     if x[i] == '0']
+                print(linesOxy)
             if len(linesCO2) != 1:
                 linesCO2 = [x for x in linesCO2 if x[i] == '0'] if resCO2['1'] >= resCO2['0'] else [x for x in linesCO2
                                                                                                     if x[i] == '1']
