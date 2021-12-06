@@ -1,0 +1,65 @@
+import sys
+import re
+
+import numpy
+
+
+def main():
+    arraySize = 0
+    with open('input.txt') as file:
+        arraySize = getHighestnumberInFile('input.txt')
+        lines = numpy.zeros((arraySize + 1, arraySize + 1))
+        counter = 0
+        for line in file:
+            value = list(filter(None, re.split(',|->|,', line.strip())))
+            x1 = int(value[0]);
+            y1 = int(value[1]);
+            x2 = int(value[2]);
+            y2 = int(value[3])
+
+            stepX = 1
+            stepY = 1
+
+            if (y1 > y2):stepY = -1
+            if (x1 > x2): stepX = -1
+
+            if x1 == x2:
+                for y in range(y1, y2 + stepY, stepY):
+                    increase(x1, y, lines)
+                    if (lines[x1][y] == 2):
+                        counter += 1
+            elif y1 == y2:
+                for x in range(x1, x2 + stepX, stepX):
+                    increase(x, y1, lines)
+                    if (lines[x][y1] == 2):
+                        counter += 1
+            else:
+                y = y1
+                for x in range(x1, x2 + stepX, stepX):
+                    increase(x, y, lines)
+                    if (lines[x][y] == 2):
+                        counter += 1
+                    y += stepY
+
+    print(counter)
+
+
+def flatten(list):
+    return [item for sublist in list for item in sublist]
+
+
+def getHighestnumberInFile(fileName):
+    with open(fileName) as file:
+        numbers = ([list(filter(None, re.split(',|->|,', line.strip()))) for line in file])
+        numbers = flatten(numbers)
+        numbers = [int(number) for number in numbers]
+        arraySize = (max(numbers))
+        return arraySize
+
+
+def increase(x, y, list):
+    list[x][y] += 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())
