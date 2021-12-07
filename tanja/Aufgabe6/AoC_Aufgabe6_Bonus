@@ -1,0 +1,26 @@
+import sys
+from collections.__init__ import Counter
+
+
+def main():
+    arraySize = 0
+    with open('input.txt') as file:
+        lanternfish = file.readline().split(',')
+        lanternfish = [int(fish.strip()) for fish in lanternfish]
+
+        fishDict = dict(Counter(fish for fish in lanternfish))
+        for i in range(9):
+            if not (i in fishDict): fishDict[i] = 0
+
+        for day in range(256):
+            pregnantFish = fishDict[0]
+            for i in range(8):
+                fishDict[i] = fishDict[(i + 1)]
+            fishDict[8] = pregnantFish
+            fishDict[6] += pregnantFish
+
+        print(sum(fishDict.values()))
+
+
+if __name__ == '__main__':
+    sys.exit(main())
