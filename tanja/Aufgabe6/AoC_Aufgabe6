@@ -1,0 +1,25 @@
+import sys
+
+
+def main():
+    arraySize = 0
+    with open('input.txt') as file:
+        lanternfish = file.readline().split(',')
+        lanternfish = [int(fish.strip()) for fish in lanternfish]
+
+        for day in range(80):
+            fishCount = len(lanternfish)
+           # print(day)
+            for i in range(fishCount):
+                if lanternfish[i] == 0:
+                    lanternfish[i] = 6
+                    lanternfish.append(8)
+                    continue
+                lanternfish[i] = lanternfish[i]-1
+
+        print(len(lanternfish))
+
+
+
+if __name__ == '__main__':
+    sys.exit(main())
