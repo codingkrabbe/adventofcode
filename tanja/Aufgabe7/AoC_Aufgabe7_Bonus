@@ -1,0 +1,23 @@
+import sys
+
+
+def main():
+    with open('input.txt') as file:
+        # crabs = [16, 1, 2, 0, 4, 2, 7, 1, 2, 14]
+        crabs = file.readline().split(',')
+        crabs = [int(fish.strip()) for fish in crabs]
+    minFuel = sys.maxsize
+
+    for meetinPoint in range(min(crabs), max(crabs) + 1):
+        fuel = 0
+        for crab in crabs:
+            steps = abs(crab - meetinPoint)
+            for fuelCost in range(1, steps + 1):
+                fuel += fuelCost
+        if fuel < minFuel: minFuel = fuel
+
+    print(minFuel)
+
+
+if __name__ == '__main__':
+    sys.exit(main())
