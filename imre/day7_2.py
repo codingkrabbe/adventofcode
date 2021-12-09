@@ -3,7 +3,6 @@ p = [int(n) for n in open('input.txt', 'r').readline().split(',')]
 min_val = sys.maxsize
 min_idx = -1
 
-
 # Very slow. Should build dict first probably
 def fuel_for_step(step):
     return step + sum(list(range(step)))
