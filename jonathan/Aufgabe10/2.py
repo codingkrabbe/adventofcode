@@ -87,6 +87,5 @@ def main():
     print('Final completion score: ' + str(final_score))
 
 
-
 if __name__ == '__main__':
     main()
