@@ -1,41 +1,42 @@
 import sys
 
 counter = 0
-def main():
 
+
+def main():
     with open('input.txt') as file:
         global counter
         octopuses = file.read().splitlines()
         octopuses = [list(map(int, line)) for line in octopuses]
         print(octopuses)
         for i in range(100):
-            #stepflashes
+            # stepflashes
             for y in range(len(octopuses)):
                 for x in range(len(octopuses[y])):
                     octopuses[y][x] += 1
                     if octopuses[y][x] == 10:
-                        flash(x,y,octopuses)
-            #resetflashies
+                        flash(x, y, octopuses)
+            # resetflashies
             for y in range(len(octopuses)):
                 for x in range(len(octopuses[y])):
                     if octopuses[y][x] >= 10:
                         octopuses[y][x] = 0
 
-
         print(counter)
 
 
-
-def flash(x,y,octopuses):
+def flash(x, y, octopuses):
     global counter
     counter += 1
-    for neighbourCoord in getNeighbourCoordinates(x,y,octopuses):
+    for neighbourCoord in getNeighbourCoordinates(x, y, octopuses):
         nX = neighbourCoord[0]
         nY = neighbourCoord[1]
         octopuses[nY][nX] += 1
         if octopuses[nY][nX] == 10:
-            flash(nX,nY,octopuses)
+            flash(nX, nY, octopuses)
     return
+
+
 def getUpperCoordinates(x, y, octopuses):
     if (y - 1) < 0:
         return False
