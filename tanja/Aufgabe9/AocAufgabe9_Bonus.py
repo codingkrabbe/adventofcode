@@ -21,8 +21,7 @@ def recurse(x, y, heatMap, baisins):
     for neighbourCoord in getNeighbourCoordinates(x, y, heatMap):
         if neighbourCoord in baisins:
             continue
-        if int(heatMap[neighbourCoord[1]][neighbourCoord[0]]) > int(heatMap[y][x]) and int(
-                heatMap[neighbourCoord[1]][neighbourCoord[0]]) < 9:
+        if int(heatMap[y][x]) < int(heatMap[neighbourCoord[1]][neighbourCoord[0]]) < 9:
             recurse(neighbourCoord[0], neighbourCoord[1], heatMap, baisins)
 
     return len(baisins)
@@ -32,10 +31,10 @@ def getLowPoints(heatMap, baisins):
     lowPoints = []
     for y in range(len(heatMap)):
         for x in range(len(heatMap[y])):
-            if int(heatMap[y][x]) < getUpper(x, y, heatMap, baisins) and int(heatMap[y][x]) < getLower(x, y, heatMap,
-                                                                                                       baisins) and int(
-                heatMap[y][x]) < getLeft(x, y, heatMap, baisins) and int(heatMap[y][x]) < getRight(x, y, heatMap,
-                                                                                                   baisins):
+            if int(heatMap[y][x]) < getUpper(x, y, heatMap, baisins) \
+                    and int(heatMap[y][x]) < getLower(x, y, heatMap, baisins) \
+                    and int(heatMap[y][x]) < getLeft(x, y, heatMap, baisins) \
+                    and int(heatMap[y][x]) < getRight(x, y, heatMap, baisins):
                 lowPoints.append((x, y))
     return lowPoints
 
