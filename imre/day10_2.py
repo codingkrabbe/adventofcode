@@ -26,4 +26,3 @@ for l in lines:
         score_list.append(score)
 score_list.sort()
 print(score_list[int((len(score_list) + 1) / 2) - 1])
-

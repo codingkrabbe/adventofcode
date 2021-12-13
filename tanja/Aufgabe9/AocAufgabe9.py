@@ -7,17 +7,12 @@ def main():
         heatMap = file.read().splitlines()
         for y in range(len(heatMap)):
             for x in range(len(heatMap[y])):
-                if int(heatMap[y][x]) < getUpper(x, y, heatMap) and int(heatMap[y][x]) < getLower(x, y,
-                                                                                                  heatMap) and int(
-                        heatMap[y][x]) < getLeft(x, y, heatMap) and int(heatMap[y][x]) < getRight(x, y, heatMap):
+                if int(heatMap[y][x]) < getUpper(x, y, heatMap) and int(heatMap[y][x]) < getLower(x, y, heatMap) \
+                        and int(heatMap[y][x]) < getLeft(x, y, heatMap) \
+                        and int(heatMap[y][x]) < getRight(x, y, heatMap):
                     sumRisk += ((int(heatMap[y][x]) + 1))
 
     print(sumRisk)
-
-
-def flatten(list):
-    return [item for sublist in list for item in sublist]
-
 
 def getUpper(x, y, heatMap):
     if (y - 1) < 0:
