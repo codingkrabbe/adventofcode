@@ -29,16 +29,16 @@ def iterate(grid):
 
 
 def print_animation(grid, i):
-    color_dict = {0: '.', 1: '-', 2: '+', 3: '*', 4: '#', 5: '$', 6: '░', 7: '▒', 8: '▓', 9: '█'}
+    color_dict = {0: '██', 1: '░░', 2: '░░', 3: '░░', 4: '░░', 5: '▒▒', 6: '▒▒', 7: '▒▒', 8: '▒▒', 9: '▒▒'}
     text = ''
     for y in range(len(grid)):
         for x in range(len(grid[0])):
             text += color_dict[grid[y][x]['val']]
         text += '\n'
-    image = Image.new(mode="RGB", size=(150, 200), color='black')
+    image = Image.new(mode="RGB", size=(360, 360), color='black')
     fnt = ImageFont.truetype('consolai.ttf', 15)
     draw = ImageDraw.Draw(image)
-    draw.text((10, 10), text, font=fnt)
+    draw.text((10, 30), text, font=fnt)
     image.save('images/img' + str(i) + '.png')
 
 
@@ -54,7 +54,7 @@ for y in range(len(grid)):
         for n in neighbour_map:
             if 0 <= x + n[0] < len(grid[y]) and 0 <= y + n[1] < len(grid):
                 grid[y][x]['neighbours'].append([x + n[0], y + n[1]])
-for i in range(700):
+for i in range(500):
     grid, flash_count = iterate(grid)
     print_animation(grid, i)
     if flash_count == 100:
