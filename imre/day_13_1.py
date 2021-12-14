@@ -24,4 +24,5 @@ def fold(axis: str, value: int, matrix):
         matrix = np.rot90(matrix, 3) # Rotate back
     return matrix
 
+
 print(np.count_nonzero(fold(ops[0]['axis'], ops[0]['val'], grid)))
