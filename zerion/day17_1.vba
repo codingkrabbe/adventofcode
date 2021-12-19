@@ -35,17 +35,10 @@ Next
             highy = probey
             End If
                          probeyvelo = probeyvelo - 1
-          
-                    If probey = 10147 Then
-                    g = 1
-                    End If
-                        If probex <= Tabelle16.Cells(1, 3) And probex >= Tabelle16.Cells(1, 2) And probey <= Tabelle16.Cells(2, 4) And probey >= Tabelle16.Cells(2, 3) Then
+                                                      If probex <= Tabelle16.Cells(1, 3) And probex >= Tabelle16.Cells(1, 2) And probey <= Tabelle16.Cells(2, 4) And probey >= Tabelle16.Cells(2, 3) Then
             hit = 1
             End If
-            toomuch = toomuch + 1
-            If veloy = 35 And toomuch = 60 Then
-            h = 1
-            End If
+           
             Loop Until probex > Tabelle16.Cells(1, 3) Or probey < Tabelle16.Cells(2, 4) Or hit = 1
             If hit = 1 Then
                                                 If highnew < highy Then
